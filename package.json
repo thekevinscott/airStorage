@@ -1,0 +1,34 @@
+{
+  "name": "airstorage",
+  "version": "0.0.1",
+  "description": "Allows you to access a persistent Storage object",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "babel src -d dist",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/thekevinscott/airStorage.git"
+  },
+  "keywords": [
+    "remote storage",
+    "remote json",
+    "server json",
+    "server storage",
+    "air storag",
+    "airStorage",
+    "etherstorage",
+    "cloudstorage"
+  ],
+  "author": "Kevin Scott",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thekevinscott/airStorage/issues"
+  },
+  "homepage": "https://github.com/thekevinscott/airStorage#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "jest": "^21.2.1"
+  }
+}
