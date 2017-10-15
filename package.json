@@ -1,6 +1,6 @@
 {
   "name": "airstorage",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Allows you to access a persistent Storage object",
   "main": "dist/index.js",
   "scripts": {
