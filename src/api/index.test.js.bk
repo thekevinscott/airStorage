@@ -1,0 +1,67 @@
+import fs from "fs";
+import path from "path";
+import api from "./index";
+jest.mock("axios");
+import { ClientError } from "../utils/errors";
+
+const validData = JSON.parse(fs.readFileSync(path.resolve(__dirname, `../../__fixtures__/api/get/validData.json`), 'utf8'));
+
+// jest.mock('axios', () => (args) => new Promise((resolve, reject) => {
+//   if (typeof args === "function") {
+//     return reject(args());
+//   }
+
+//   return resolve(args);
+// }));
+
+describe("api success", () => {
+  // test("api returns the data attribute", () => {
+  //   const payload = {
+  //     url: "/validData",
+  //   };
+
+  //   return api(payload).then((args) => {
+  //     expect(args).toEqual(validData);
+  //   });
+  // });
+
+  test("api rethrows an error that is missing a response", () => {
+    return api({
+      url: "missingData",
+    }).catch(err => {
+      console.log(err.message);
+      console.log(err.date);
+      expect(err).toEqual(undefined);
+    });
+  });
+
+  /*
+
+  test("api rethrows an error that contains a response", () => {
+    const data = { foo: "bar" };
+    const status = 500;
+    return api(() => {
+      throw {
+        response: {
+          data,
+          status,
+        },
+      };
+    }).catch((err) => {
+      expect(err.message).toEqual(data);
+      expect(err.status).toEqual(status);
+    });
+  });
+
+  test("api handles a 404", () => {
+    const payload = {
+      foo: "bar",
+    };
+    return api(() => {
+      throw payload;
+    }).catch((err) => {
+      expect(err).toEqual(JSON.stringify(payload));
+    });
+  });
+  */
+});
