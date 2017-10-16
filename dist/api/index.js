@@ -12,8 +12,8 @@ var _errors = require("../utils/errors");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// const root = "http://api.airstorage.io";
-const root = "http://localhost:5050";
+const root = "http://api.airstorage.io";
+// const root = "http://localhost:5050";
 
 const api = options => {
   return (0, _axios2.default)(options).then(resp => {

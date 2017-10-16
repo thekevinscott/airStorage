@@ -5,7 +5,10 @@ const root = "http://api.airstorage.io";
 // const root = "http://localhost:5050";
 
 const api = (options) => {
-  return axios(options).then((resp) => {
+  return axios({
+    ...options,
+    url: `${root}${options.url}`,
+  }).then((resp) => {
     if (resp.data === undefined) {
       throw "Missing data response";
     }
