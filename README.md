@@ -22,7 +22,9 @@ npm install airStorage --save
 
 Where possible, `airStorage` is a 1:1 mapping with `localStorage`.
 
-The syntax for saving data is:
+### `setItem`
+
+You can save or update data for a particular key with `setItem`:
 
 ```
 var airStorage = require("airStorage");
@@ -35,7 +37,9 @@ airStorage.setItem("myDog", "Rex", function(err, resp) {
 });
 ```
 
-You can fetch data with:
+### `getItem`
+
+You can fetch the value of a key with `getItem`:
 
 ```
 var airStorage = require("airStorage");
@@ -48,7 +52,7 @@ airStorage.getItem("myDog", function(err, result) {
 });
 ```
 
-You can remove data with:
+You can remove the value at a specific key with `removeItem`:
 
 ```
 var airStorage = require("airStorage");
@@ -61,11 +65,21 @@ airStorage.removeItem("myDog", function(err, result) {
 });
 ```
 
-### Persisting across clients
+## Persistence
 
-To sync data across clients you will need to identify yourself via a unique key.
+Every request to `airStorage` requires a user key.
 
-You can retrieve a key at ________. Once you have a key, you can configure `airStorage` with:
+If `airStorage` is not provided with an explicit user key, the first network request will return a randomly generated user key back. This key will be stored in `localStorage`. This will persist the data for a particular browser but will be cleared as soon as the user clears their cache.
+
+To persist data more persistently, or to sync data across browsers, you can identify yourself with a unique and long-lasting key.
+
+### Getting a key
+
+You can retrieve a key at [https://airstorage.io](https://airstorage.io).
+
+### Configuring a key
+
+Once you have a key, you can configure `airStorage` with:
 
 ```
 var airStorage = require("airStorage");
@@ -74,7 +88,7 @@ airStorage.config({
 });
 ```
 
-Alternatively, you can configure the object you get back when requiring:
+Alternatively, you can configure the object like so:
 
 ```
 var airStorage = require("airStorage")({

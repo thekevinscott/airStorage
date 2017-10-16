@@ -1,8 +1,8 @@
 import axios from "axios";
 import { ClientError } from "../utils/errors";
 
-// const root = "http://api.airstorage.io";
-const root = "http://localhost:5050";
+const root = "http://api.airstorage.io";
+// const root = "http://localhost:5050";
 
 const api = (options) => {
   return axios(options).then((resp) => {
