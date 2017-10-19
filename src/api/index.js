@@ -3,12 +3,11 @@ import { ClientError } from "../utils/errors";
 
 const root = "https://api.airstorage.io";
 
-const api = (originalUrl, ...options) => {
-  const url = `${root}${originalUrl}`;
+const api = (originalUrl, options) => {
   return axios({
     ...options,
     method: options.method || "get",
-    url,
+    url: `${root}${originalUrl}`,
   }).then((resp) => {
     if (resp.data === undefined) {
       throw "Missing data response";
@@ -28,3 +27,5 @@ const api = (originalUrl, ...options) => {
 }
 
 export default api;
+
+

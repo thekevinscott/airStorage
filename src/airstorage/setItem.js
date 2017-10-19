@@ -11,7 +11,7 @@ const setItem = (key, value, callback) => {
   return request({
     url: "/set",
     method: "post",
-    params: {
+    data: {
       key,
       value,
     },

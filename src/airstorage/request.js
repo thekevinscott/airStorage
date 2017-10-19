@@ -3,9 +3,9 @@ import api from "../api";
 const request = ({
   url,
   method,
-  params,
+  data,
   callback,
-}) => api(url, method, params).then(resp => {
+}) => api(url, { method, data }).then(resp => {
   if (callback) {
     callback(null, resp);
   }
