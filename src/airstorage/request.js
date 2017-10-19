@@ -5,7 +5,7 @@ const request = ({
   method,
   params,
   callback,
-}) => api(url, method, params).then(resp => {
+}) => api(url, { method, params }).then(resp => {
   if (callback) {
     callback(null, resp);
   }
