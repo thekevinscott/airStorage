@@ -16,11 +16,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 const root = "https://api.airstorage.io";
 
-const api = (originalUrl, ...options) => {
-  const url = `${root}${originalUrl}`;
+const api = (originalUrl, options) => {
   return (0, _axios2.default)(_extends({}, options, {
     method: options.method || "get",
-    url
+    url: `${root}${originalUrl}`
   })).then(resp => {
     if (resp.data === undefined) {
       throw "Missing data response";

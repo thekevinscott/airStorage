@@ -13,9 +13,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 const request = ({
   url,
   method,
-  params,
+  data,
   callback
-}) => (0, _api2.default)(url, method, params).then(resp => {
+}) => (0, _api2.default)(url, { method, data }).then(resp => {
   if (callback) {
     callback(null, resp);
   }

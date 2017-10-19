@@ -22,7 +22,7 @@ const setItem = (key, value, callback) => {
   return (0, _request2.default)({
     url: "/set",
     method: "post",
-    params: {
+    data: {
       key,
       value
     },
